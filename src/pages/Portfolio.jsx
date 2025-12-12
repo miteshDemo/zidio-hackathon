@@ -23,7 +23,7 @@ export default function Portfolio() {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 p-6 sm:p-10">
+    <div className="min-h-screen rounded-2xl bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 p-6 sm:p-10">
       <div className="max-w-4xl mx-auto space-y-10">
         {/* User Header */}
         <div className="flex items-center gap-6 bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">

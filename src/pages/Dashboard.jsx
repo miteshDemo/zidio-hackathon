@@ -33,7 +33,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 p-8 space-y-10">
+    <div className="min-h-screen rounded-2xl bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 p-8 space-y-10">
       {/* Header */}
       <div className="flex items-center justify-between bg-white/10 backdrop-blur-md rounded-xl p-6 shadow-lg">
         <h1 className="text-3xl font-extrabold text-white tracking-tight">
@@ -51,7 +51,7 @@ export default function Dashboard() {
 
       {/* Top Grid */}
       <div className="grid md:grid-cols-3 gap-6">
-        <Card className="bg-white/90 backdrop-blur-md shadow-lg hover:shadow-xl transition rounded-xl p-6">
+        <Card className="bg-white/90 backdrop-blur-md shadow-lg hover:shadow-xl transition rounded-3xl p-6">
           <h3 className="text-lg font-semibold text-slate-800">Your Profile</h3>
 
           {!editing ? (

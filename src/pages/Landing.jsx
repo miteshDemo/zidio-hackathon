@@ -7,39 +7,29 @@ export default function Landing() {
 
   return (
     <div className="space-y-16">
+      <div className="absolute inset-0 -z-10 before:absolute before:inset-0 before:bg-[url('https://www.shutterstock.com/image-vector/blue-matrix-background-falling-binary-260nw-1824159923.jpg')] before:bg-cover"></div>
       {/* Hero Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <h1 className="text-5xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Run great hackathons — fast
           </h1>
-          <p className="mt-6 text-lg text-slate-600 max-w-lg">
+          <p className="mt-6 text-lg text-blue-300 max-w-lg">
             Participant registration, team management, submissions, leaderboards
             and admin tools — all in one platform.
           </p>
 
-          <div className="mt-8 flex gap-4">
-            {/* IF USER IS NOT LOGGED IN — show Get started */}
-            {!user && (
-              <Link
-                to="/register"
-                className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition-transform hover:scale-105"
-              >
-                Get started
-              </Link>
-            )}
+          {/* ⌨ Typing Animation */}
+          {!user && (
+            <div className="mt-8">
+              <p className="text-indigo-600 font-semibold text-lg typing-animation whitespace-nowrap overflow-hidden border-r-4 border-indigo-600 pr-4">
+                Start your journey . . .
+              </p>
+            </div>
+          )}
 
-            {/* IF USER IS LOGGED IN — show Dashboard */}
-            {user && (
-              <Link
-                to="/dashboard"
-                className="px-6 py-3 bg-white border border-slate-300 rounded-lg text-slate-800 hover:bg-slate-50 shadow-sm transition-transform hover:scale-105"
-              >
-                Go to Dashboard
-              </Link>
-            )}
-
-            {/* Leaderboard visible for everyone */}
+          {/* Leaderboard visible for everyone */}
+          <div className="mt-8">
             <Link
               to="/leaderboard"
               className="px-6 py-3 border border-slate-300 rounded-lg text-slate-800 hover:bg-slate-50 shadow-sm transition-transform hover:scale-105"
@@ -68,6 +58,25 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      {/* Typing Animation CSS */}
+      <style>{`
+        .typing-animation {
+          width: 18ch;
+          animation: typing 3s steps(18), blink .6s step-end infinite alternate;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 18ch }
+        }
+
+        @keyframes blink {
+          50% { border-color: transparent }
+        }
+      `}</style>
     </div>
   );
 }

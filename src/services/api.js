@@ -1,19 +1,18 @@
 // small mock API used for demo UI without backend
 const mockUsers = [
-  { id: 'u1', name: 'Anika', email: 'anika@example.com', role: 'participant' },
-  { id: 'u2', name: 'Ravi', email: 'ravi@example.com', role: 'judge' },
-  { id: 'u3', name: 'Admin', email: 'admin@example.com', role: 'admin' }
+  { id: 'u1', name: 'Mitesh', email: 'mits123@gmail.com', role: 'participant' },
+  { id: 'u2', name: 'Admin', email: 'admin111@gmail.com', role: 'admin' }
 ]
 
 const mockTeams = [
-  { id: 't1', name: 'Team Falcon', members: ['Anika', 'Ravi'], score: 85 },
-  { id: 't2', name: 'ByteBusters', members: ['Mitesh'], score: 93 }
+  { id: 't1', name: 'Project 1', members: ['Mitesh'], score: 99 },
+  
 ]
 
 export async function login({ email, password }) {
   // fake auth: accept any password
   const user = mockUsers.find(u => u.email === email)
-  if (!user) throw new Error('User not found (try anika@example.com or admin@example.com)')
+  if (!user) throw new Error('User not found (try anika@gmail.com or admin@gmail.com)')
   // simulate token
   return { user, token: 'fake-jwt-token' }
 }

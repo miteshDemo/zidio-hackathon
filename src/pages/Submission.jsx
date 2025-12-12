@@ -14,7 +14,7 @@ export default function Submission() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 flex items-center justify-center p-6">
+    <div className="min-h-screen rounded-2xl bg-gradient-to-br from-purple-700 via-purple-800 to-indigo-900 flex items-center justify-center p-6">
       <div className="w-full max-w-2xl space-y-6">
         <h2 className="text-3xl font-extrabold text-center text-white tracking-tight">
           🚀 Submit Your Project
