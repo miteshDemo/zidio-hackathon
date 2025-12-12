@@ -1,69 +1,67 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import Logo from "../assets/Zh-removebg-preview.png";
 
 export default function Navbar() {
-  const auth = useAuth()
-  const nav = useNavigate()
+  const auth = useAuth();
+  const nav = useNavigate();
 
   function onLogout() {
-    auth.signOut()
-    nav('/')
+    auth.signOut();
+    nav("/");
   }
 
   return (
-    <nav className="bg-black text-white shadow-sm">
+    <nav className="bg-gradient-to-r from-black via-gray-900 to-black text-white shadow-md">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-
         {/* Left Section */}
-        <div className="flex items-center gap-4">
-          <Link to="/" className="font-semibold text-xl">
-            Zidio Hackathon
-          </Link>
-          <Link to="/leaderboard" className="text-sm hover:underline">
-            Leaderboard
+        <div className="flex items-center gap-3">
+          {/* LOGO */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <img
+              src={Logo}
+              alt="Zidio Hackathon Logo"
+              className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="text-base font-semibold tracking-wide hidden sm:block">
+              Zidio Hackathon
+            </span>
           </Link>
         </div>
 
         {/* Right Section */}
         <div className="flex items-center gap-4">
-
-          {/* If NOT logged in */}
           {!auth.user && (
             <>
               <Link
                 to="/login"
-                className="px-3 py-1 rounded border border-white text-sm hover:bg-white hover:text-black transition"
+                className="px-3 py-1.5 rounded border border-white text-xs hover:bg-white hover:text-black transition"
               >
                 Login
               </Link>
 
               <Link
                 to="/register"
-                className="px-3 py-1 rounded bg-white text-black text-sm hover:bg-gray-200 transition"
+                className="px-3 py-1.5 rounded bg-white text-black text-xs hover:bg-gray-200 transition"
               >
                 Register
               </Link>
             </>
           )}
 
-          {/* If logged in */}
           {auth.user && (
             <>
               {/* Profile Avatar */}
               <Link
                 to="/dashboard"
-                className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center font-semibold hover:bg-gray-300 transition"
+                className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center text-sm font-semibold hover:bg-gray-300 transition"
               >
                 {auth.user.name?.charAt(0).toUpperCase()}
               </Link>
 
-              {/* Admin link (only for admin role) */}
-              {auth.user.role === 'admin' && (
-                <Link
-                  to="/admin"
-                  className="text-sm hover:underline"
-                >
+              {auth.user.role === "admin" && (
+                <Link to="/admin" className="text-xs hover:underline">
                   Admin
                 </Link>
               )}
@@ -71,16 +69,14 @@ export default function Navbar() {
               {/* Logout Button */}
               <button
                 onClick={onLogout}
-                className="px-3 py-1 rounded bg-red-600 text-white text-sm hover:bg-red-700 transition"
+                className="px-3 py-1.5 rounded bg-red-600 text-white text-xs hover:bg-red-700 transition"
               >
                 Logout
               </button>
             </>
           )}
-
         </div>
-
       </div>
     </nav>
-  )
+  );
 }
